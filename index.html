@@ -139,15 +139,16 @@ nav.scrolled{background:rgba(6,9,15,.92);backdrop-filter:blur(20px);border-botto
 /* ── PRIZES ── */
 #prizes{padding:100px 0;background:var(--navy2)}
 .prize-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:56px}
-.prize-card{background:var(--navy3);border:1px solid var(--border);border-radius:var(--xl);overflow:hidden;transition:all .3s ease;cursor:pointer;position:relative}
+.prize-card{background:var(--navy3);border:1px solid var(--border);border-radius:var(--xl);overflow:hidden;transition:all .3s ease;cursor:pointer;position:relative;height:320px;display:flex;flex-direction:column}
 .prize-card:hover{border-color:var(--border2);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.5),var(--glow)}
 .prize-card.featured{border-color:rgba(0,230,118,.35);background:linear-gradient(160deg,#0F1F10 0%,var(--navy3) 60%)}
 .pc-badge{position:absolute;top:12px;right:12px;background:var(--green);color:#000;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase}
 .pc-badge.gold{background:var(--gold)}
-.pc-banner{height:120px;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(160deg,var(--navy4) 0%,var(--navy2) 100%);position:relative}
+.pc-banner{height:120px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .pc-banner::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 80%,rgba(0,230,118,.15),transparent 70%)}
+.prize-img{width:100%;height:120px;object-fit:cover;object-position:center}
 .prize-card.gold-prize .pc-banner::after{background:radial-gradient(circle at 50% 80%,rgba(255,184,0,.15),transparent 70%)}
-.pc-body{padding:16px}
+.pc-body{padding:16px;flex:1;display:flex;flex-direction:column}
 .pc-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
 .pc-value{font-size:12px;color:var(--text3);margin-bottom:12px}
 .pc-value span{color:var(--gold);font-weight:600}
@@ -173,7 +174,7 @@ nav.scrolled{background:rgba(6,9,15,.92);backdrop-filter:blur(20px);border-botto
 #trust{padding:60px 0;background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
 .trust-item-box{background:var(--navy2);padding:28px 20px;text-align:center}
-.ti-icon{font-size:28px;display:block;margin-bottom:10px}
+.ti-icon{font-size:28px;display:block;margin-bottom:10px;max-width:80px;max-height:70px;object-fit:contain}
 .ti-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px}
 .ti-desc{font-size:12px;color:var(--text3);line-height:1.5}
 
@@ -420,45 +421,6 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
         </a>
         <a href="#prizes" class="btn btn-outline btn-lg">See All Prizes →</a>
       </div>
-      <div class="hero-trust-bar">
-        <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Licensed by LSLGA
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Secure Payments via Paystack
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Transparent Live Draws
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-4-3.87"/></svg>
-          Open to Lagos Residents
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-box">
-          <span class="stat-num" id="stat1">0</span>
-          <span class="stat-label">Early Birds</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num" id="stat2">0</span>
-          <span class="stat-label">Prizes Up For Grabs</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num" id="stat3">0</span>
-          <span class="stat-label">Tickets Sold</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- COUNTDOWN -->
 <section id="countdown">
   <div class="container">
@@ -473,7 +435,7 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
         <span class="cd-sep">:</span>
         <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-text">secs</span></div>
       </div>
-      <div class="spots-left"> Only <span id="spotsLeft">2040</span> spots left</div>
+      <div class="spots-left"> Only <span id="spotsLeft">23900</span> spots left</div>
     </div>
   </div>
 </section>
@@ -524,15 +486,16 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
       <p class="section-sub">Every prize is genuine, brand new, and delivered to your door if you win. No vouchers. No gimmicks. Just real things you actually want.</p>
     </div>
     <div class="prize-grid">
-      <div class="prize-card featured reveal">
-        <div class="pc-badge">🔥 Most Popular</div>
-        <div class="pc-banner">📱</div>
+<div class="prize-card featured reveal">
+        <div class="pc-banner">
+          <img src="iphone16.png" alt="iPhone 16 Pro Max" class="prize-img">
+        </div>
         <div class="pc-body">
           <div class="pc-name">iPhone 16 Pro Max (256GB)</div>
           <div class="pc-value">Market Value: <span>₦900,000</span></div>
           <div class="pc-footer">
             <span class="pc-ticket">₦500 / ticket</span>
-            <span class="pc-spots">200 total tickets</span>
+            <span class="pc-spots">2000 total tickets</span>
           </div>
           <div class="pc-bar-wrap">
             <div class="pc-bar-label"><span>Tickets sold</span><span>68%</span></div>
@@ -540,15 +503,17 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
           </div>
         </div>
       </div>
-      <div class="prize-card reveal">
+<div class="prize-card reveal">
         <div class="pc-badge gold">New Draw</div>
-        <div class="pc-banner">💻</div>
+        <div class="pc-banner">
+          <img src="macbookair.png" alt="MacBook Air M3" class="prize-img">
+        </div>
         <div class="pc-body">
           <div class="pc-name">MacBook Air M3 (8GB/256GB)</div>
           <div class="pc-value">Market Value: <span>₦1,200,000</span></div>
           <div class="pc-footer">
             <span class="pc-ticket">₦1,000 / ticket</span>
-            <span class="pc-spots">150 total tickets</span>
+            <span class="pc-spots">1500 total tickets</span>
           </div>
           <div class="pc-bar-wrap">
             <div class="pc-bar-label"><span>Tickets sold</span><span>41%</span></div>
@@ -556,14 +521,16 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
           </div>
         </div>
       </div>
-      <div class="prize-card gold-prize reveal">
-        <div class="pc-banner">💰</div>
+<div class="prize-card gold-prize reveal">
+        <div class="pc-banner">
+          <img src="tv.png" alt="65-Inch Television" class="prize-img">
+        </div>
         <div class="pc-body">
-          <div class="pc-name">₦500,000 Cash Prize</div>
-          <div class="pc-value">Paid to your bank account — <span>₦500K</span></div>
+          <div class="pc-name">65-Inch Television</div>
+          <div class="pc-value">Market Value: <span>₦650K</span></div>
           <div class="pc-footer">
             <span class="pc-ticket">₦500 / ticket</span>
-            <span class="pc-spots">300 total tickets</span>
+            <span class="pc-spots">3000 total tickets</span>
           </div>
           <div class="pc-bar-wrap">
             <div class="pc-bar-label"><span>Tickets sold</span><span>55%</span></div>
@@ -571,14 +538,16 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
           </div>
         </div>
       </div>
-      <div class="prize-card reveal">
-        <div class="pc-banner">🎮</div>
+<div class="prize-card reveal">
+        <div class="pc-banner">
+          <img src="playstation.jpg" alt="PlayStation 5 Slim Bundle" class="prize-img">
+        </div>
         <div class="pc-body">
           <div class="pc-name">PlayStation 5 Slim Bundle</div>
           <div class="pc-value">Market Value: <span>₦450,000</span></div>
           <div class="pc-footer">
             <span class="pc-ticket">₦500 / ticket</span>
-            <span class="pc-spots">180 total tickets</span>
+            <span class="pc-spots">1800 total tickets</span>
           </div>
           <div class="pc-bar-wrap">
             <div class="pc-bar-label"><span>Tickets sold</span><span>32%</span></div>
@@ -586,14 +555,16 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
           </div>
         </div>
       </div>
-      <div class="prize-card reveal">
-        <div class="pc-banner">⌚</div>
+<div class="prize-card reveal">
+        <div class="pc-banner">
+          <img src="applewatch.jpg" alt="Apple Watch Series 10" class="prize-img">
+        </div>
         <div class="pc-body">
           <div class="pc-name">Apple Watch Series 10</div>
           <div class="pc-value">Market Value: <span>₦320,000</span></div>
           <div class="pc-footer">
             <span class="pc-ticket">₦500 / ticket</span>
-            <span class="pc-spots">120 total tickets</span>
+            <span class="pc-spots">1200 total tickets</span>
           </div>
           <div class="pc-bar-wrap">
             <div class="pc-bar-label"><span>Tickets sold</span><span>79%</span></div>
@@ -688,11 +659,11 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
           <div class="wc-avatar" style="background:linear-gradient(135deg,var(--gold),#e6a600)">NA</div>
           <div class="wc-info">
             <div class="wc-name">Ngozi A.</div>
-            <div class="wc-prize">Won: ₦500,000 Cash Prize</div>
+            <div class="wc-prize">Won: Apple Watch Series 10</div>
             <div class="wc-date">📍 Surulere, Lagos — February 2026</div>
           </div>
         </div>
-        <div class="wc-quote">"I used part of the money to pay my rent, the rest is in savings. I was skeptical at first but WinIt transferred the full amount the same day. I've told everyone I know."</div>
+        <div class="wc-quote">"I was skeptical, but I won an Apple Watch from WinIt and it came to my doorstep. I’ve told everyone I know."</div>
         <div class="wc-stars">★★★★★</div>
       </div>
       <div class="winner-card reveal">
