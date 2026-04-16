@@ -335,6 +335,12 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:48px 0 
   .footer-bottom{flex-direction:column;gap:12px;text-align:center}
   .modal-share{flex-direction:column}
 }
+@media(max-width:680px){
+  .prize-card{height:auto;min-height:280px}
+  .prize-img{height:100px}
+  .pc-body{padding:12px}
+  .prize-grid{gap:12px}
+}
 @media(max-width:420px){
   .hero-stats{display:flex;overflow-x:auto;border-radius:var(--rs)}
   .stat-box{min-width:110px}
@@ -1170,15 +1176,7 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 
 /* ── Spots countdown ─────────────────────────────────────────────────────── */
-let spots = parseInt(localStorage.getItem('winit_spots') || '247');
-function decreaseSpots() {
-  if (spots > 80 && Math.random() < 0.3) {
-    spots--;
-    document.getElementById('spotsLeft').textContent = spots;
-    localStorage.setItem('winit_spots', spots);
-  }
-}
-setInterval(decreaseSpots, 45000);
+let spots = parseInt(localStorage.getItem('winit_spots') || '23900');
 
 /* ── Phone verification ──────────────────────────────────────────────────── */
 function verifyPhone() {
